@@ -1,7 +1,15 @@
 const db = require('../../models');
 const {Router} = require('express');
 
+
 const router = Router();
+
+router.get("/testAPI", (req, res) => {
+    res.status(200).send({
+        "status": "OK",
+        "message": "API State: available"
+    });
+})
 
 router.get("/", (req, res) => {
     res.send({Title:'Hello ADSO!'});
