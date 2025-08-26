@@ -12,8 +12,9 @@ app.use(bodyParser.json()); // Permite recibir solicitudes en formato JSON
 
 // Habilitar CORS (Cross-Origin Resource Sharing)
 // Para desarrollo puedes usar origin: '*' o especificar tu origen 'http://localhost:64176'
-app.use(cors());
-app.options('*', cors()); // soporta preflight OPTIONS
+app.use(cors({
+    origin: '*'
+})); // soporta preflight OPTIONS
 
 // RUTAS //
 app.use('/api/categories/', require('./api/categories/categories'))
