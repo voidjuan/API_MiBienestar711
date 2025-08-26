@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser') // Llama la dependencia de body-parser para el parseo de datos
+const cors = require('cors');
 const app = express();
 if (process.env.NODE_ENV !== "production"){
     require('dotenv').config();
@@ -8,6 +9,11 @@ if (process.env.NODE_ENV !== "production"){
 // Permite recibir datos del formulario
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); // Permite recibir solicitudes en formato JSON
+
+// Habilitar CORS (Cross-Origin Resource Sharing)
+// Para desarrollo puedes usar origin: '*' o especificar tu origen 'http://localhost:64176'
+app.use(cors());
+app.options('*', cors()); // soporta preflight OPTIONS
 
 // RUTAS //
 app.use('/api/categories/', require('./api/categories/categories'))
