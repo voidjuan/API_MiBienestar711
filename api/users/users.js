@@ -3,24 +3,13 @@ const {Router} = require('express');
 
 const router = Router();
 
-// routes/users.js o similar
 router.get('/all', async (req, res) => {
-  try {
-    let users = await db.User.findAll({
-      attributes: [
-        'id', 'username', 'email', 'password', 'phone', 
-        'birthday', 'document', 'gender', 'state', 
-        'rolId',
-        'passwordResetToken', 'passwordResetExpires',
-        'createdAt', 'updatedAt'
-      ]
-    });
-    
-    res.status(200).json(users);
-  } catch (error) {
-    console.error('Error específico:', error);
-    res.status(500).json({ error: error.message });
-  }
+    try {
+        let users = await db.User.findAll();
+        res.status(200).send(users);
+    } catch (error) {
+        res.status(400).send('No se pudieron obtener los Usuarios');
+    }
 });
 
 router.get('/:id', async (req, res) => {
