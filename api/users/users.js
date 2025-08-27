@@ -33,7 +33,7 @@ router.post("/new", async (req, res)=> {
     let document = req.body.document;
     let gender = req.body.gender;
     let state = req.body.state;
-    let rolId = req.body.rolId;
+    let RolId = req.body.RolId;
     let passwordResetToken = req.body.passwordResetToken;
     let passwordResetExpires = req.body.passwordResetExpires;
     try {
@@ -46,7 +46,7 @@ router.post("/new", async (req, res)=> {
             document,
             gender,
             state,
-            rolId,
+            RolId,
             passwordResetToken,
             passwordResetExpires,
         });
@@ -60,7 +60,7 @@ router.post("/new", async (req, res)=> {
 router.put('/update/:id', async (req, res) => {
     try {
         let id = req.params.id;
-        let {username, email, password, phone, birthday, document, gender, state, rolId, passwordResetToken, passwordResetExpires} = req.body;
+        let {username, email, password, phone, birthday, document, gender, state, RolId, passwordResetToken, passwordResetExpires} = req.body;
         await db.User.update(
             {
                 username, 
@@ -71,7 +71,7 @@ router.put('/update/:id', async (req, res) => {
                 document, 
                 gender, 
                 state, 
-                rolId, 
+                RolId, 
                 passwordResetToken, 
                 passwordResetExpires,
             },

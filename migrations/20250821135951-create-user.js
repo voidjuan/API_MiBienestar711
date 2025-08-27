@@ -33,7 +33,7 @@ module.exports = {
       state: {
         type: Sequelize.STRING
       },
-      rolId: {
+      RolId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
