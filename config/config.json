@@ -24,6 +24,11 @@
         "require": true,
         "rejectUnauthorized": false
       }
+    },
+    "define": {
+      "freezeTableName": true,
+      "underscored": false, 
+      "timestamps": true
     }
   }
 }

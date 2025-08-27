@@ -11,8 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsTo(models.Rol);
-      models.Rol.hasMany(User);
+      User.belongsTo(models.Rol, {
+        foreignKey: 'rolId',
+        as: 'rols'
+      });
+      models.Rol.hasMany(User, {
+        foreignKey: 'rolId',
+        as: 'users'
+      });
     }
   }
   User.init({
@@ -24,7 +30,11 @@ module.exports = (sequelize, DataTypes) => {
     document: DataTypes.STRING,
     gender: DataTypes.STRING,
     state: DataTypes.STRING,
-    rolId: DataTypes.INTEGER,
+    rolId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'rolId'
+    },
     passwordResetToken: DataTypes.STRING,
     passwordResetExpires: DataTypes.DATE
   }, {
