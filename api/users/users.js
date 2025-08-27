@@ -8,6 +8,11 @@ router.get('/all', async (req, res) => {
         let users = await db.User.findAll();
         res.status(200).send(users);
     } catch (error) {
+        console.error('Error específico:', {
+            message: error.message,
+            stack: error.stack,
+            name: error.name
+        });
         res.status(400).send('No se pudieron obtener los Usuarios');
     }
 });
