@@ -103,4 +103,69 @@ router.delete('/delete/:id', async (req, res) => {
     }
 });
 
+// Agregar este endpoint al archivo api/users/users.js
+
+router.post('/login', async (req, res) => {
+    try {
+        let { username, password } = req.body;
+        
+        // Validar que se envíen ambos campos
+        if (!username || !password) {
+            return res.status(400).json({ 
+                error: 'Username y password son requeridos' 
+            });
+        }
+
+        // Buscar el usuario por username
+        let user = await db.User.findOne({
+            where: {
+                username: username
+            },
+            include: [{
+                model: db.Rol,
+                attributes: ['name'] // Incluir el nombre del rol
+            }]
+        });
+
+        // Verificar si el usuario existe y la contraseña coincide
+        if (!user || user.password !== password) {
+            return res.status(401).json({ 
+                error: 'Credenciales incorrectas' 
+            });
+        }
+
+        // Verificar que el usuario esté activo
+        if (user.state !== 'Activo') {
+            return res.status(403).json({ 
+                error: 'Usuario inactivo. Contacte al administrador.' 
+            });
+        }
+
+        // Login exitoso - devolver datos del usuario (sin la contraseña)
+        const userData = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+            birthday: user.birthday,
+            document: user.document,
+            gender: user.gender,
+            state: user.state,
+            rol: user.Rol ? user.Rol.name : null,
+            RolId: user.RolId
+        };
+
+        res.status(200).json({
+            message: 'Login exitoso',
+            user: userData
+        });
+
+    } catch (error) {
+        console.error('Error en login:', error);
+        res.status(500).json({ 
+            error: 'Error interno del servidor' 
+        });
+    }
+});
+
 module.exports = router;
