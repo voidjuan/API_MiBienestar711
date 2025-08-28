@@ -44,7 +44,8 @@ router.post("/new", async (req, res)=> {
         });
         res.status(200).send('Evento Creado con exito!');
     } catch (error) {
-        console.log(error);
+        console.error('Error específico:', error);
+        res.status(400).json({ error: error.message });
         res.status(400).send('El evento no se pudo crear!')
     }
 });
