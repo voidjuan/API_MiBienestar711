@@ -13,8 +13,8 @@ module.exports = {
           endDate: new Date(2025, 8, 15, 17, 0, 0),
           state: "Activo",
           maxCapacity: 100,
-          categoryId: 1, // Deportes
-          userId: 3,     // coord_andres
+          CategoryId: 1, // Deportes
+          UserId: 3,     // coord_andres
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -25,8 +25,8 @@ module.exports = {
           endDate: new Date(2025, 8, 20, 14, 0, 0),
           state: "Activo",
           maxCapacity: 40,
-          categoryId: 2, // Agricultura
-          userId: 4,     // coord_paola
+          CategoryId: 2, // Agricultura
+          UserId: 4,     // coord_paola
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -37,8 +37,8 @@ module.exports = {
           endDate: new Date(2025, 10, 6, 8, 0, 0),
           state: "Activo",
           maxCapacity: 60,
-          categoryId: 3, // Programación
-          userId: 3,     // coord_andres
+          CategoryId: 3, // Programación
+          UserId: 3,     // coord_andres
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -49,8 +49,8 @@ module.exports = {
           endDate: new Date(2025, 8, 25, 18, 0, 0),
           state: "Activo",
           maxCapacity: 50,
-          categoryId: 4, // Salud y Cuidado
-          userId: 4,     // coord_paola
+          CategoryId: 4, // Salud y Cuidado
+          UserId: 4,     // coord_paola
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -61,8 +61,8 @@ module.exports = {
           endDate: new Date(2025, 11, 10, 18, 0, 0),
           state: "Activo",
           maxCapacity: 80,
-          categoryId: 7, // Gastronomía
-          userId: 3,     // coord_andres
+          CategoryId: 7, // Gastronomía
+          UserId: 3,     // coord_andres
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -73,8 +73,8 @@ module.exports = {
           endDate: new Date(2025, 11, 20, 17, 0, 0),
           state: "Activo",
           maxCapacity: 70,
-          categoryId: 9, // Innovación
-          userId: 4,     // coord_paola
+          CategoryId: 9, // Innovación
+          UserId: 4,     // coord_paola
           createdAt: new Date(),
           updatedAt: new Date(),
         },

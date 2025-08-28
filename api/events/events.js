@@ -29,8 +29,8 @@ router.post("/new", async (req, res)=> {
     let endDate = req.body.endDate;
     let state = req.body.state;
     let maxCapacity = req.body.maxCapacity;
-    let categoryId = req.body.categoryId;
-    let userId = req.body.userId;
+    let CategoryId = req.body.CategoryId;
+    let UserId = req.body.UserId;
     try {
         await db.Event.create({
             name,
@@ -39,8 +39,8 @@ router.post("/new", async (req, res)=> {
             endDate,
             state,
             maxCapacity,
-            categoryId,
-            userId,
+            CategoryId,
+            UserId,
         });
         res.status(200).send('Evento Creado con exito!');
     } catch (error) {
@@ -52,7 +52,7 @@ router.post("/new", async (req, res)=> {
 router.put('/update/:id', async (req, res) => {
     try {
         let id = req.params.id;
-        let {name, description, startDate, endDate, state, maxCapacity, categoryId, userId} = req.body;
+        let {name, description, startDate, endDate, state, maxCapacity, CategoryId, UserId} = req.body;
         await db.Event.update(
             {
                 name,
@@ -61,8 +61,8 @@ router.put('/update/:id', async (req, res) => {
                 endDate,
                 state,
                 maxCapacity,
-                categoryId,
-                userId,
+                CategoryId,
+                UserId,
             },
             {
                 where: {

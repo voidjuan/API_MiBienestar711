@@ -27,7 +27,7 @@ module.exports = {
       maxCapacity: {
         type: Sequelize.INTEGER
       },
-      categoryId: {
+      CategoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -37,7 +37,7 @@ module.exports = {
           }
         }
       },
-      userId: {
+      UserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

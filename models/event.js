@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     endDate: DataTypes.DATE,
     state: DataTypes.STRING,
     maxCapacity: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    CategoryId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Event',
