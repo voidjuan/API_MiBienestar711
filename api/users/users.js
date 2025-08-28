@@ -97,6 +97,8 @@ router.delete('/delete/:id', async (req, res) => {
         });
         res.status(200).send('Usuario eliminado correctamente!');
     } catch (error) {
+        console.error('Error específico:', error);
+        res.status(400).json({ error: error.message });
         res.status(400).send('No se pudo eliminar el usuario');
     }
 });
